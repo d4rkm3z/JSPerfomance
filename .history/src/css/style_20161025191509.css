@@ -1,0 +1,10 @@
+.btn-compare{
+  margin-top:20px !important;
+  margin-bottom: 22px !important;
+}
+.span-snippets textarea{
+  font-weight: normal;
+}
+textarea {
+  width: 100% !important;
+}

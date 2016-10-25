@@ -1,0 +1,1 @@
+export defaulclass Model{}
