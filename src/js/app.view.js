@@ -1,6 +1,7 @@
 class View {
-  setResults(result) {
-    $('#result').text(result);
+  setResults(data) {
+    $('#result').text(data.text);
+    $($('textarea')[data.id]).toggleClass('faster');
   }
   getFragmentCodes() {
     let codes = [];
@@ -9,5 +10,11 @@ class View {
       codes.push(i.value);
     }
     return codes;
+  }
+  showPopover(data){
+    $('.btn-compare').popover(data.options).popover('toggle');
+  }
+  clearForm(){
+    $($('textarea')).removeClass('faster');
   }
 }

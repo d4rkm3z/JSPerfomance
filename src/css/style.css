@@ -8,3 +8,7 @@
 textarea {
   width: 100% !important;
 }
+textarea.faster{
+  border-color: lightgreen;
+  border-width: 3px;
+}

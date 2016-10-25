@@ -18,13 +18,14 @@ class CalculateResults {
   }
   getPerfectScript() {
     let calculates = this.mediator.model.getCalculates();
+    console.log(calculates);
     let mean = [];
 
     for (let i in calculates) {
       mean[i] = calculates[i] / 1000;
     }
 
-    let result = mean.indexOf(Math.max(...mean));
+    let result = mean.indexOf(Math.min(...mean));
     return `Snippet ${result+1} is fastest`;
   }
 }
@@ -32,6 +33,7 @@ class TestCode {
   constructor(mediator) {
     this.mediator = mediator;
     this.calculateTime = mediator.calculateTime;
+    this.loopSteps = mediator.loopSteps;
   }
   addCalculate(obj) {
     this.mediator.addCalculate(obj);
@@ -42,17 +44,16 @@ class TestCode {
 
       for (let j = 0; j <= 1000; j++) {
         this.calculateTime.start();
-        this.runCalculate(fragmentCodes[i]);
+        this._runCalculate(fragmentCodes[i]);
         workedTime += this.calculateTime.getWorkedTime();
       }
-      console.log(workedTime);
       this.addCalculate({
         id: i,
         value: workedTime
       });
     }
   }
-  runCalculate(code) {
+  _runCalculate(code) {
     try{
       eval(code);
     } catch(e){
@@ -60,11 +61,17 @@ class TestCode {
     }
   }
 }
+class PrintResult{
+  setRusult(){}
+  setError(){}
+  setprogressBar(){}
+}
 class Controller {
   constructor() {
     self = this;
     self.view = new View();
     self.model = new Model();
+    self.loopSteps = 1000;
 
     self.calculateTime = new CalculateTime();
     self.calculateResults = new CalculateResults(self);
