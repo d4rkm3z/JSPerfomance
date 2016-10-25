@@ -1,6 +1,0 @@
-class View{
-
-}
-class Controller{
-
-}

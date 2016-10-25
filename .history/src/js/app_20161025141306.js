@@ -1,1 +1,0 @@
-import { View } from './app.view.js';
