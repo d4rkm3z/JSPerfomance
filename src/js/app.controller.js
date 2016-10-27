@@ -16,83 +16,50 @@ class ComputingPerformanceTime {
 }
 
 
-
 class AdaptingResults {
-    setResultText(obj) {
-        let obj = this.mediator.result || {};
-        this.mediator.result.text = `Snippet ${obj[Object.keys(obj)[1]]} is faster over ${obj[Object.keys(obj)[2]]} ms`;
+    setResultText(fragments) {
+        let obj = fragments.filter((value)=>(value.faster))[0];
+        obj.text = `Snippet ${obj.number} is faster over ${Number(obj.difference).toPrecision(1)} ms`;
+        return obj;
     }
 }
 
 
 /**-----*/
 
-class ProgressBar {
-    constructor(progressBars){
-        this.progressBars = progressBars;
-    }
-    setListener(id, callback){
-        $(this.progressBars[id]).on('changeValue', callback);
-    }
-    updateValue(data){
-        $(this.progressBar).trigger('changeValue', [data]);
-    }
-}
-class AppError {
-    sendError(data) {
-        throw new Error(data);
-    }
-}
 
 class Validate {
-    constructor() {
-        this.error = new AppError();
-    }
-
     validateFragments(fragments) {
         for (let i in fragments) {
             try {
-                if (!fragments[i].length) error.sendError(`Snippet ${i + 1} is empty`);
-                eval(fragments[i]);
+                if (!fragments[i].code.length) {
+                    fragments[i].error = `Snippet ${Number(i) + 1} is empty`;
+                }
+                eval(fragments[i].code);
             } catch (e) {
-                error.sendError(e);
-            }
-            if (!result) {
-                error.sendError(result);
+                fragments[i].error = e;
             }
         }
-    }
-}
-
-class TestingCode {
-    constructor(countStepsLoop) {
-        this.performance = new ComputingPerformanceTime();
-        this.countStepsLoop = countStepsLoop;
-    }
-
-    startCode(progressBar, codeFragment) {
-        let workedTime = 0;
-        for (let j = 0; j <= this.countStepsLoop; j++) {
-            this.performance.start();
-            eval(codeFragment);
-            progressBar.updateValue();
-            workedTime += this.performance.getWorkedTime();
-        }
-        return workedTime;
+        return fragments;
     }
 }
 
 class Fragments {
-    constructor() {
-        this.fragments = [];
-    }
-
     setFragmentsCode(data) {
+        this.fragments = [];
         for (let i in data) {
             if (!this.fragments.hasOwnProperty(i)) {
                 this.fragments[i] = [];
             }
             this.fragments[i].code = data[i];
+            this.fragments[i].id = Number(i);
+            this.fragments[i].number = Number(i) + 1;
+        }
+    }
+
+    setProgressBar(data) {
+        for (let i in this.fragments) {
+            this.fragments[i].progressBar = data[i];
         }
     }
 
@@ -105,14 +72,16 @@ class Fragments {
     }
 }
 
+
 class ComputingMeanResults {
-    constructor(countStepsLoop){
+    constructor(countStepsLoop) {
         this.countStepsLoop = countStepsLoop;
     }
+
     computingMean(object) {
         let mean = [];
         for (let i in object) {
-            mean[i] = object[i] / this.countStepsLoop;
+            mean[i] = object[i].performance / this.countStepsLoop;
         }
         let id = mean.indexOf(Math.min(...mean));
         let difference = Math.abs(mean[0] - mean[1]);
@@ -123,70 +92,145 @@ class ComputingMeanResults {
         return object;
     }
 }
+class TestingCode {
+    constructor(countStepsLoop) {
+        this.performance = new ComputingPerformanceTime();
+        this.countStepsLoop = countStepsLoop;
+        this.timeout = [];
+    }
+
+    asyncStartCode(progressBar, codeFragment) {
+        this.stopped = false;
+        this.timeout.push(setTimeout(doLoop, 0));
+
+        let workedTime = 0;
+        let self = this;
+        let j = 0;
+        let deferred = new $.Deferred();
+
+
+        function doLoop() {
+            self.performance.start();
+            eval(codeFragment);
+            workedTime += self.performance.getWorkedTime();
+            $(progressBar).trigger('update', j / 10);
+
+            j++;
+            if (j <= 1000 && !self.stopped) {
+                self.timeout.push(setTimeout(doLoop, 0));
+            } else {
+                clearTimeout(self.stop());
+                deferred.resolve(workedTime);
+            }
+        }
+
+        doLoop();
+        return deferred.promise();
+    }
+
+    stop() {
+        this.stopped = true;
+        for (let id in this.timeout) {
+            window.clearTimeout(id);
+        }
+    }
+}
 class Controller {
     constructor() {
         this.view = new View();
-        this.model = new Model();
         let countStepsLoop = 1000;
-
-        self.progress = 0;
-        self.error = '';
-        self.codes = [];
-        self.result = new Object();
-
-        self.calculatingPerfomanceTime = new CalculatingPerformanceTime();
-        self.calculateResults = new CalculateResults(self);
-        self.testCode = new TestingCode(self);
-        self.adaptingResults = new AdaptingResults(self);
-        self.fragmentsCodes = new FragmentsCodes(self);
 
         this.fragmentsModel = new Fragments();
         this.testingCode = new TestingCode(countStepsLoop);
         this.computingMeanResults = new ComputingMeanResults(countStepsLoop);
+        this.progressBars = this.view.getAllProgressBars();
     }
 
     runCompare() {
+        let self = this;
         this.fragmentsModel.setFragmentsCode(this.view.getFragmentCodes());
+        this.fragmentsModel.setProgressBar(this.progressBars);
         //this.model.setLengthCalculate(this.fragmentsModel.getFragments.length);
-        this.validate();
-        this.computingPerformance();
-        this.computingMean();
-        this.setResultText();
-        this.getPerfectSnippet();
-        self.setResult();
+        if (this.validate()) {
+            this.addEventListeners();
+
+            this.computingPerformance().then(function () {
+                let fragments = self.fragmentsModel.getFragments();
+                self.computingMean();
+                let text = self.setResultText(fragments)
+                self.setResult(text);
+            });
+        } else {
+            let result = self.fragmentsModel.getFragments().filter((val)=>(val.error));
+            result.error = true;
+            self.setResult(result);
+        }
+    }
+
+    addEventListeners() {
+        let self = this;
+        for (let i in this.fragmentsModel.getFragments()) {
+            let progressBar = this.progressBars[i];
+            $(progressBar).on('update', function (e, data) {
+                self.view.updateProgress(data, e);
+            });
+        }
     }
 
     validate() {
         let validate = new Validate();
-        validate.validateFragments(this.fragments.getFragments());
+        let resultValidate = validate.validateFragments(this.fragmentsModel.getFragments());
+        this.fragmentsModel.setFragments(resultValidate);
+        if (resultValidate.filter((val)=>(val.error)).length>0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     computingPerformance() {
-        let progressBarModel = new ProgressBar(this.view.getAllProgressBars());
+        let self = this;
         let fragments = this.fragmentsModel.getFragments();
+        let promises = [];
 
         for (let i in fragments) {
-            let progressBar = progressBarModel.setListener(i, function(e, data){
-                this.setProgressBar(data.value);
-            });
-            fragments[i].performance = this.testingCode.startCode(progressBar, fragments[i].code);
+            let fragment = fragments[i];
+
+            promises.push(this.asyncComputingPerformance(fragment.progressBar, fragment.code).then(function (data) {
+                fragment.performance = data;
+            }));
         }
-        this.fragmentsModel.setFragments(fragments);
+        return $.when(...promises).then(function () {
+            self.fragmentsModel.setFragments(fragments);
+        });
     }
-    computingMean(){
+
+    /**
+     * @returns {Promise}
+     * Promise return worktime of script
+     */
+    asyncComputingPerformance(progressBar, code) {
+        let self = this;
+        return self.testingCode.asyncStartCode(progressBar, code);
+
+    }
+
+    computingMean() {
         let fragments = this.fragmentsModel.getFragments();
         fragments = this.computingMeanResults.computingMean(fragments);
         this.fragmentsModel.setFragments(fragments);
     }
-    getPerfectSnippet(){
-        let fragments = this.fragmentsModel.getFragments();
-        return fragments.filter((value)=>(value.performance));
+
+    setResultText(fragments) {
+        let adaptingResults = new AdaptingResults();
+        return adaptingResults.setResultText(fragments);
     }
+
     setResult(data) {
         this.view.setResults(data);
     }
 
-    setProgressBar(data) {
-        this.view.updateProgress(data);
+    stop() {
+        this.testingCode.stop();
     }
 }

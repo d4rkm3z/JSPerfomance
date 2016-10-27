@@ -10,3 +10,11 @@ textarea.faster{
   border-color: lightgreen;
   border-width: 3px;
 }
+textarea.error{
+  border-color: red;
+  border-width: 3px;
+}
+
+.progress .progress-bar {
+  transition:none !important;
+}
