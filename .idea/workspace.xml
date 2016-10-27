@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51f65d5f-c352-44a3-8cf2-b91f46c0e309" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/style.css" afterPath="$PROJECT_DIR$/src/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.controller.js" afterPath="$PROJECT_DIR$/src/js/app.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.js" afterPath="$PROJECT_DIR$/src/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.model.js" afterPath="$PROJECT_DIR$/src/js/app.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.view.js" afterPath="$PROJECT_DIR$/src/js/app.view.js" />
     </list>
     <ignored path="DP#6 JSperfomance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +52,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="app.view.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="app.view.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/js/app.view.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="567">
@@ -77,12 +72,14 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="app.model.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="app.model.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/js/app.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="2196">
+                  <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="1" />
+                  <folding>
+                    <element signature="n#ComputingPerformanceTime#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -95,10 +92,8 @@
             <entry file="file://$PROJECT_DIR$/src/js/app.controller.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="162">
-                  <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-                  <folding>
-                    <element signature="n#ComputingPerformanceTime#0" expanded="false" />
-                  </folding>
+                  <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -114,12 +109,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/js/app.model.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/css/style.css" />
-        <option value="$PROJECT_DIR$/src/js/app.controller.js" />
         <option value="$PROJECT_DIR$/src/js/app.view.js" />
+        <option value="$PROJECT_DIR$/src/js/app.controller.js" />
+        <option value="$PROJECT_DIR$/src/js/app.model.js" />
       </list>
     </option>
   </component>
@@ -273,15 +268,15 @@
       <workItem from="1477414037017" duration="1777000" />
       <workItem from="1477415821935" duration="2012000" />
       <workItem from="1477473041929" duration="14510000" />
-      <workItem from="1477490340700" duration="46777000" />
+      <workItem from="1477490340700" duration="46890000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65076000" />
+    <option name="totallyTimeSpent" value="65189000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="189" y="85" width="1731" height="995" extended-state="0" />
+    <frame x="189" y="85" width="1731" height="995" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13788742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -360,7 +355,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="n#ComputingPerformanceTime#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -368,9 +365,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1044">
           <caret line="73" column="47" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
-          <folding>
-            <element signature="n#ComputingPerformanceTime#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -398,9 +393,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1062">
           <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-          <folding>
-            <element signature="n#ComputingPerformanceTime#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -424,7 +417,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding />
+          <folding>
+            <element signature="n#ComputingPerformanceTime#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -452,9 +447,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding>
-            <element signature="n#ComputingPerformanceTime#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -478,7 +471,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="n#ComputingPerformanceTime#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -494,14 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
           <caret line="932" column="9" selection-start-line="932" selection-start-column="9" selection-end-line="932" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/app.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -534,20 +521,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/app.controller.js">
+    <entry file="file://$PROJECT_DIR$/src/js/app.view.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        <state relative-caret-position="567">
+          <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2196">
+          <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="1" />
           <folding>
             <element signature="n#ComputingPerformanceTime#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/app.view.js">
+    <entry file="file://$PROJECT_DIR$/src/js/app.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+        <state relative-caret-position="162">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding />
         </state>
       </provider>
