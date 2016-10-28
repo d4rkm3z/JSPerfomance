@@ -59,7 +59,7 @@ class Controller {
         for (let i in fragments) {
             let fragment = fragments[i];
 
-            promises.push(this.asyncComputingPerformance(fragment.progressBar, fragment.code).then(function (data) {
+            promises.push(this.asyncComputingPerformance(fragment).then(function (data) {
                 fragment.performance = data;
             }));
         }
@@ -72,10 +72,9 @@ class Controller {
      * @returns {Promise}
      * Promise return worktime of script
      */
-    asyncComputingPerformance(progressBar, code) {
+    asyncComputingPerformance(fragment) {
         let self = this;
-        return self.testingCode.asyncStartCode(progressBar, code);
-
+        return self.testingCode.asyncStartCode(fragment);
     }
 
     computingMean() {

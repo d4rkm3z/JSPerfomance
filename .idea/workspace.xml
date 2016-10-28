@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51f65d5f-c352-44a3-8cf2-b91f46c0e309" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.controller.js" afterPath="$PROJECT_DIR$/src/js/app.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.model.js" afterPath="$PROJECT_DIR$/src/js/app.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.view.js" afterPath="$PROJECT_DIR$/src/js/app.view.js" />
     </list>
     <ignored path="DP#6 JSperfomance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +33,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="364">
-                  <caret line="44" column="86" selection-start-line="44" selection-start-column="86" selection-end-line="44" selection-end-column="86" />
+                <state relative-caret-position="598">
+                  <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#label#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#label#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -52,11 +54,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="app.view.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="app.view.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/js/app.view.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="567">
-                  <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+                <state relative-caret-position="192">
+                  <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
                   <folding />
                 </state>
               </provider>
@@ -72,11 +74,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="app.model.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="app.model.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/js/app.model.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2196">
-                  <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="1" />
+                <state relative-caret-position="534">
+                  <caret line="130" column="5" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
                   <folding>
                     <element signature="n#ComputingPerformanceTime#0" expanded="false" />
                   </folding>
@@ -91,8 +93,8 @@
           <file leaf-file-name="app.controller.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/js/app.controller.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="162">
-                  <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+                <state relative-caret-position="298">
+                  <caret line="76" column="35" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -109,12 +111,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/css/style.css" />
-        <option value="$PROJECT_DIR$/src/js/app.view.js" />
         <option value="$PROJECT_DIR$/src/js/app.controller.js" />
         <option value="$PROJECT_DIR$/src/js/app.model.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/src/js/app.view.js" />
       </list>
     </option>
   </component>
@@ -125,10 +127,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="189" />
-    <option name="y" value="85" />
-    <option name="width" value="1731" />
-    <option name="height" value="995" />
+    <option name="x" value="183" />
+    <option name="y" value="118" />
+    <option name="width" value="1737" />
+    <option name="height" value="962" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -268,15 +270,15 @@
       <workItem from="1477414037017" duration="1777000" />
       <workItem from="1477415821935" duration="2012000" />
       <workItem from="1477473041929" duration="14510000" />
-      <workItem from="1477490340700" duration="46890000" />
+      <workItem from="1477490340700" duration="50375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65189000" />
+    <option name="totallyTimeSpent" value="68674000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="189" y="85" width="1731" height="995" extended-state="1" />
+    <frame x="183" y="118" width="1737" height="962" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13788742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -493,14 +495,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/src/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="44" column="86" selection-start-line="44" selection-start-column="86" selection-end-line="44" selection-end-column="86" />
+        <state relative-caret-position="216">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="76" column="35" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="130" column="5" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#label#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#label#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#span#0;n#label#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#ComputingPerformanceTime#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -513,36 +529,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/style.css">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding />
+        <state relative-caret-position="598">
+          <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#label#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#label#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#span#0;n#label#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/app.view.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/app.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2196">
-          <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="1" />
-          <folding>
-            <element signature="n#ComputingPerformanceTime#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/app.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="192">
+          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
           <folding />
         </state>
       </provider>

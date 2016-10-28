@@ -100,7 +100,7 @@ class TestingCode {
         this.timeout = [];
     }
 
-    asyncStartCode(progressBar, codeFragment) {
+    asyncStartCode(fragment) {
         this.stopped = false;
         this.timeout.push(setTimeout(doLoop, 0));
 
@@ -108,7 +108,8 @@ class TestingCode {
         let self = this;
         let j = 0;
         let deferred = new $.Deferred();
-
+        let progressBar = fragment.progressBar;
+        let codeFragment = fragment.code;
 
         function doLoop() {
             self.performance.start();

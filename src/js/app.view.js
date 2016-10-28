@@ -22,12 +22,30 @@ class ProgressBarView {
     }
 }
 
+class Button{
+    constructor(button){
+        this.button = button;
+    }
+    toggleStatus(){
+        if (!!this.button.attr('disabled')) {
+            this.button.attr('disabled', false);
+        } else {
+            this.button.attr('disabled', 'disabled');
+        }
+    }
+}
+
 class View {
     constructor() {
         this.progressBar = new ProgressBarView();
+        this.buttonStart = new Button($('#calculate'));
+        this.buttonStop = new Button($('#stopCalculate'));
     }
 
     setResults(data) {
+        this.buttonStart.toggleStatus();
+        this.buttonStop.toggleStatus();
+
         let message = '';
         if (data.error) {
             for(let el of data) {
@@ -40,11 +58,14 @@ class View {
             message = data.text;
         }
         $('#result').text(message);
+
     }
 
     initialize() {
         this.clearForm();
         this.progressBar.reset();
+        this.buttonStart.toggleStatus();
+        this.buttonStop.toggleStatus();
     }
 
     getFragmentCodes() {
