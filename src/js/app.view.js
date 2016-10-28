@@ -5,6 +5,7 @@ class ProgressBarView {
 
     /** set value of progress bar */
     setValue(data, elem) {
+        data = data > 100 ? 100 : data;
         elem.attr('aria-valuenow', data);
         elem.css('width', data + '%');
         elem.text(data);
@@ -22,43 +23,63 @@ class ProgressBarView {
     }
 }
 
-class Button{
-    constructor(button){
-        this.button = button;
+class DomElement {
+    constructor(element) {
+        this.element = element;
     }
-    toggleStatus(){
-        if (!!this.button.attr('disabled')) {
-            this.button.attr('disabled', false);
+
+    toggleStatus() {
+        if (!!this.element.attr('disabled')) {
+            this.element.attr('disabled', false);
         } else {
-            this.button.attr('disabled', 'disabled');
+            this.element.attr('disabled', 'disabled');
         }
     }
+
+    toggleClassElement(className) {
+        this.element.toggleClass(className);
+    }
+
+    getValue() {
+        return this.element.val();
+    }
+
+    setValue(val) {
+        this.element.val(val);
+    }
+
 }
 
 class View {
     constructor() {
         this.progressBar = new ProgressBarView();
-        this.buttonStart = new Button($('#calculate'));
-        this.buttonStop = new Button($('#stopCalculate'));
+        this.buttonStart = new DomElement($('#calculate'));
+        this.buttonStop = new DomElement($('#stopCalculate'));
+        this.resultSnippet = new DomElement($('#result'));
+        this.snippets = [];
+        let self = this;
+
+        $('.span-snippets textarea').each(function (k, v) {
+            self.snippets.push(new DomElement($(v)));
+        });
     }
 
     setResults(data) {
-        this.buttonStart.toggleStatus();
-        this.buttonStop.toggleStatus();
+        this.endWork();
 
         let message = '';
         if (data.error) {
-            for(let el of data) {
-                $($('textarea')[Number(el.id)]).toggleClass('error');
+            for (let el of data) {
+                this.snippets[Number(el.id)].toggleClassElement('error');
                 message += `${el.error}\n`;
             }
         }
         else {
-            $($('textarea')[Number(data.id)]).toggleClass('faster');
+            this.snippets[Number(data.id)].toggleClassElement('faster');
             message = data.text;
         }
-        $('#result').text(message);
 
+        this.resultSnippet.setValue(message);
     }
 
     initialize() {
@@ -66,16 +87,22 @@ class View {
         this.progressBar.reset();
         this.buttonStart.toggleStatus();
         this.buttonStop.toggleStatus();
+        $(this.snippets).each((k, v)=>(v.toggleStatus()));
+        $(this.progressBar.getAll()).each((k,v)=>($(v).addClass('active')));
+    }
+
+    endWork() {
+        this.buttonStart.toggleStatus();
+        this.buttonStop.toggleStatus();
+        $(this.snippets).each((k, v)=>(v.toggleStatus()));
+        $(this.progressBar.getAll()).each((k,v)=>($(v).removeClass('active')));
     }
 
     getFragmentCodes() {
         this.initialize();
 
         let codes = [];
-        let textareas = $('.span-snippets textarea');
-        for (let i of textareas) {
-            codes.push(i.value);
-        }
+        $(this.snippets).each((k, v)=>codes.push(v.getValue()));
         return codes;
     }
 
@@ -85,7 +112,9 @@ class View {
 
     updateProgress(data, e) {
         let elem = $(e.target);
+        console.log(data);
         this.progressBar.setValue(data, elem);
+
     }
 
     clearForm() {

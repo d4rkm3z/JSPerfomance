@@ -1,10 +1,14 @@
 .btn-compare{
   margin-top:20px !important;
-  margin-bottom: 22px !important;
+  margin-bottom: 20px !important;
 }
 textarea{
   font-weight: normal;
   width: 100% !important;
+  margin-bottom: 10px !important;
+}
+textarea#result{
+  margin-top: 8px !important;
 }
 textarea.faster{
   border-color: lightgreen;
@@ -17,4 +21,7 @@ textarea.error{
 
 .progress .progress-bar {
   transition:none !important;
+}
+.jumbotron{
+  padding-bottom: 0px !important;
 }
